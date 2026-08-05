@@ -14,3 +14,10 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Run in Docker
+
+```bash
+docker build -t my-react-app .
+docker run --rm -p 8080:80 my-react-app
+```
