@@ -23,7 +23,7 @@ spec:
       containers:
       - name: react-app
 
-        image: pasta1205/react-eks-app:latest
+        image: hacker200p/react-1:latest
 
         imagePullPolicy: Always
 

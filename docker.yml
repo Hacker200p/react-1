@@ -21,8 +21,8 @@ spec:
 
     spec:
       containers:
-        - name: react-app
-          image: hacker200p/react-1
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80 
+      - name: react-app
+        image: hacker200p/react-1:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
