@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const galleryThemes = [
@@ -31,6 +31,14 @@ function App() {
 
   const handleShuffle = () => setPhotos(createGalleryItems())
 
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setPhotos(createGalleryItems())
+    }, 20_000)
+
+    return () => window.clearInterval(intervalId)
+  }, [])
+
   return (
     <main className="gallery-shell">
       <section className="gallery-hero">
@@ -38,8 +46,8 @@ function App() {
           <p className="eyebrow">Mini React project</p>
           <h1>Random Photo Gallery</h1>
           <p className="description">
-            A fast Vite + React gallery that pulls a fresh set of random online photos whenever you
-            shuffle.
+            A fast Vite + React gallery that pulls a fresh set of random online photos every 20
+            seconds, with a manual shuffle anytime you want.
           </p>
         </div>
 
@@ -67,6 +75,15 @@ function App() {
           </article>
         ))}
       </section>
+
+      <footer className="gallery-footer">
+        <p>
+          © {new Date().getFullYear()} Hacker200p. Built with React and Vite.
+        </p>
+        <a href="https://github.com/Hacker200p/react-1" target="_blank" rel="noreferrer">
+          GitHub repository
+        </a>
+      </footer>
     </main>
   )
 }
